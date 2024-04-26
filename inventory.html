@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+    <link rel="stylesheet" href="design.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <title>Insanjo</title>
+    <style>
+        /* Add your custom styles here */
+        .itemPop {
+            display: none; /* Hide popup by default */
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        <p>This website requires JavaScript. Please enable JavaScript in your browser.</p>
+    </noscript>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <div class="left-side">
+            <div class="corner">
+                <a onclick="goHome(); return false">
+                    <div class="logo">
+                        <img src="images/logoBox.png">
+                        <h2>In<b><span class="color2">sanjo</span></b></h2>
+                    </div>
+                </a>
+            </div>
+            <script>
+                function goHome(){
+                    window.location.href = "index.html";
+                }
+            </script>
+        </div>
+
+        <div class="center">
+            <br><br><br><br>
+            <div class="top-ventory">
+                <h1>Inventory</h1>
+                <div class="top">
+                    <ul class="top-check">
+                        <li><a onclick="goHome(); return false">Home</a></li>
+                        /
+                        <li><a href="#" class="active">Inventory</a></li>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <div class="inventor">
+                <form action="#">
+                    <div class="form-input">
+                        <input type="search" placeholder="Search...">
+                        <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                    </div>
+                    <div class="form-filter">
+                        <div class="filter-btn">
+                            <h3>Filter</h3>
+                        </div>
+                        <div class="filter-btn">
+                            <i class='bx bx-filter'></i>
+                            <div class="dropdown-content">
+                                <select>
+                                    <option value="option1">Date</option>
+                                    <option value="option2">Latest</option>
+                                    <option value="option3">Oldest</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-product">
+                        <button class="add" id="add">Add Products</button>
+                    </div>
+                </form>
+            </div>
+            <table id="inventory-table" class="inventory-table">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Items</th>
+                        <th>Description</th>
+                        <th>On Stocks</th>
+                        <th>Stock Date</th>
+                        <th>Purchase Price</th>
+                        <th>Selling Price</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-list"></tbody>
+            </table>
+            <form class="itemPop" id="itemPage">
+                <div class="inventory-box" id="inventory-box">
+                    <button id="itemClose" type="button" onclick="togglePopup()" style="border-radius: 50%; background-color: gray;"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    <h3 class="topBox">ADD NEW PRODUCT</h3>
+                    <div class="inputs">
+                        <div class="item-name1">
+                            <h4>Item  Name:</h4>
+                            <input type="text" name="itemName" placeholder="Enter product name" required /><br>
+                        </div>
+                        <div class="item-name2">
+                            <h4>Description:</h4>
+                            <input type="text" name="itemDescription" placeholder="Details about the product" required /><br>
+                        </div>
+                    </div>
+                    <div class="inputs">
+                        <div class="item-name1">
+                            <h4>Available on Stock:</h4>
+                            <input type="number" name="itemStock" placeholder="100" required /><br>
+                        </div>
+                        <div class="item-name1">
+                            <h4>Stock Date:</h4>
+                            <input type="date" name="itemStockDate" required /><br>
+                        </div>
+                        <div class="item-name1">
+                            <h4>Purchase Price:</h4>
+                            <input type="number" name="itemPurchasePrice" placeholder="Price (each)" required /><br>
+                        </div>
+                        <div class="item-name1">
+                            <h4>Selling Price:</h4>
+                            <input type="number" name="itemSellingPrice" placeholder="Price (each)" required /><br>
+                        </div>
+                    </div>
+                    <div class="item-image">
+                        <h4>Image</h4>
+                        <p>Please provide clear image for your product</p>
+                        <input type="file" name="itemImage" id="itemImage" accept="image/*">
+                    </div>
+                    <hr>
+                    <div class="insanjo bottom-logo">
+                        <button onclick="addProduct()" class="submit_item">Add Product</button>
+                        <div class="logo" style="display: flex; align-items: center; margin-left: -10px;">
+                            <img src="images/logoBox.png" style="width: 48px;">
+                            <h2 style="margin-left: -10px;">In<b><span class="color2">sanjo</span></b></h2>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+            <script>
+                // JavaScript to toggle popup visibility
+                function togglePopup() {
+                    var itemPage = document.getElementById('itemPage');
+                    itemPage.style.display = itemPage.style.display === 'none' ? 'block' : 'none';
+                }
+    
+                // JavaScript to ensure popup opens and stays open on first click
+                document.addEventListener('DOMContentLoaded', function () {
+                    const addProductButton = document.getElementById('add');
+                    const itemPage = document.getElementById('itemPage');
+                    const itemCloseButton = document.getElementById('itemClose');
+    
+                    addProductButton.addEventListener('click', function (event) {
+                        event.preventDefault(); // Prevent default form submission behavior
+                        itemPage.style.display = 'block';
+                    });
+    
+                    itemCloseButton.addEventListener('click', function () {
+                        itemPage.style.display = 'none';
+                    });
+                });
+            </script>
+            </div>
+
+        <!-- Right Section -->
+        <div class="right-side">
+            <!-- Right side content -->
+        </div>
+    </div>
+    <div class="footer">
+        <!-- Footer content -->
+    </div>
+</body>
+</html>
