@@ -168,30 +168,20 @@
                 }
             </script>
             <!-- End of Daily Sales -->
-            <!-- Predictive Table -->
-            <div style="cursor: pointer;" class="salesRecord tabcontent hidden" id="Tab1">
-                <h2>Predictive Analyses</h2>
-                <p>Select Trend Dates to Analyse and Generate Report.</p>
-                <div class="form2" style="display: block; background-color: var(--color-white);
-                box-shadow: var(--box-shadow);
-                border-radius: var(--card-border-radius);">
-                    <div class="downloadInput">
-                        <div class="input-place">
-                            <label for="rangeDate1" class="input-place_date">Start Date</label>
-                            <input type="date" id="rangeDate1" name="rangeDate1" class="input" required>
-                        </div>
-                        <div class="input-place">
-                            <label for="rangeDate2" class="input-place_date">End Date</label>
-                            <input type="date" id="rangeDate2" name="rangeDate2" class="input" required>
-                        </div>
-                    </div>
-                    <div class="oneButton">
-                        <input type="submit" class="calculate" value="Calculate" onclick="calculate();">
-                    </div>
-                </div>
-            </div>
+<!-- Predictive Table -->
+<div style="cursor: pointer;" class="salesRecord tabcontent hidden" id="Tab1">
+    <h2>Predictive Analyses</h2>
+    <div class="form2" style=>
+        <br>
+        <p class="predicting">Click duration button to predict Sales for;</p>
+        <br>
+        <div class="oneButton">
+            <input type="submit" class="oneWeek" value="One Week" onclick="oneWeek();">
+        </div>
+    </div>
+</div>
 
-            <!-- End of Predictive Table -->
+<!-- End of Predictive Table -->
             <!-- Download Sales Record -->
             <div style="cursor: pointer; margin-bottom: 4rem;" class="salesRecord tabcontent hidden" id="Tab3">
                 <h2>Download Records</h2>
