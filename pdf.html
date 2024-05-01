@@ -3,123 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insanjo Sales Report</title>
+    <link rel="stylesheet" href="design.css">
+    <title>Fidelity Bank Statement</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif; /* Modern and clean font */
             margin: 0;
+            padding: 0;
+            color: #333; /* Dark gray text */
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 20px;
-            background-color: #f7f7f7;
+            background-color: none;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
+
+        header img {
+            width: 80px; /* Adjusted logo size */
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: #2087dc; /* Darker blue for emphasis */
+        }
+
+        .statement-info {
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .header img {
-            width: 150px;
-            height: auto;
+
+        .statement-info p {
             margin-bottom: 10px;
+            font-size: 14px;
         }
-        .header h1 {
-            margin: 0;
-            color: #333;
-        }
-        .content {
-            margin-top: 20px;
+
+        .transactions {
             padding: 20px;
-            background-color: #f2f2f2;
-            border-radius: 8px;
         }
-        .sales-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-    }
-    .sales-table th, .sales-table td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-    .sales-table th {
-        background-color: #f2f2f2;
-        color: #333;
-    }
-    .sales-table tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-        .footer {
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd; /* Table border */
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e0e8ef; /* Light blue header background */
+            font-weight: bold;
+        }
+
+        .transactions tr:nth-child(even) {
+            background-color: #f5f5f5; /* Alternate row colors for readability */
+        }
+
+        footer {
+            padding: 20px;
             text-align: center;
-            margin-top: 20px;
-            color: #666;
-        }
-        .footer img {
-            width: 100px;
-            height: auto;
+            font-size: 12px;
+            color: #777; /* Lighter gray text */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="images/logoBox.png" alt="Insanjo Logo">
-            <h1>Insanjo Sales Report</h1>
-        </div>
-        <div class="content">
-            <!-- PDF content goes here -->
-            <h2>Sales Charts</h2>
-            <!-- Analyses -->
-            <div class="analyses">
-                <!-- Include sales analyses here -->
+    <header>
+        <a onclick="goHome(); return false" style="display: flex; align-items: center;">
+            <div class="logo">
+                <img src="images/logoBox.png">
             </div>
-            <table class="sales-table">
-                <thead>
-                    <tr>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        <th>Product</th>
-                        <th>Quantity Sold</th>
-                        <th>Unit Price</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2024-04-01</td>
-                        <td>2024-04-02</td>
-                        <td>Product A</td>
-                        <td>100</td>
-                        <td>$10</td>
-                        <td>$1000</td>
-                    </tr>
-                    <tr>
-                        <td>2024-04-02</td>
-                        <td>2024-04-03</td>
-                        <td>Product B</td>
-                        <td>50</td>
-                        <td>$20</td>
-                        <td>$1000</td>
-                    </tr>
-                    <!-- Add more dummy data as needed -->
+            <h2>In<b><span class="color2">sanjo</span></b></h2>
+        </a>
+        <p>1. OGUNABANLI ROAD, OF<br> www.fidelitybank.ng<br> 070034335489</p>
+    </header>
+    <section class="statement-info">
+        <h2>Statement</h2>
+        <p>Account: 65</p>
+        <p>Currency: NGN</p>
+        <p>Type: SBA</p>
+        <p>Victoria Nwanjoku<br>7 SHEDRACH AVENUE ELELENWO 33</p>
+        <p>From: 29 March 2024 To: 29 April 2024</p>
+    </section>
+    <section class="transactions">
+        <table>
+            <thead>
+                <tr>
+                    <th>Transaction</th>
+                    <th>Value Date</th>
+                    <th>Channel</th>
+                    <th>Details</th>
+                    <th>Pay in</th>
+                    <th>Pay Out</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Salary Deposit</td>
+                    <td>2024-04-15</td>
+                    <td>Mobile App</td>
+                    <td>Salary Payment</td>
+                    <td>₦100,000.00</td>
+                    <td>-</td>
+                    <td>₦250,000.00</td>
+                </tr>
+                <tr>
+                    <td>POS Payment</td>
+                    <td>2024-04-20</td>
+                    <td>POS</td>
+                    <td>Mama Shade's Store</td>
+                    <td>-</td>
+                    <td>₦5,000.00</td>
+                    <td>₦245,000.00</td>
+                </tr>
                 </tbody>
-            </table>
-            <div class="salesRecord tabcontent hidden" id="Tab2">
-                <!-- Include daily sales table here -->
-            </div>
-            
-        </div>
-        <div class="footer">
-            <p>&copy; 2024 Lechi-Tech</p>
-            <img src="images/Lechi Logo.png" alt="Lechi Logo">
-        </div>
-    </div>
-</body>
-</html>
+        </table>
+    </section>
+    <footer>
+        <p>FIDELITY BANK PLC, 2, Kofo Abayomi Str, V/I, Head Office Lagos.</p>
+        <p>Henry Asiegbu, Divisional
+
 

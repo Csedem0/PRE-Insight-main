@@ -85,8 +85,8 @@
                     </a>
                 </div>
                 <div class="dark-mode">
-                    <span class="material-icons-sharp active">light_mode</span>
-                    <span class="material-icons-sharp">dark_mode</span>
+                    <span class="material-icons-sharp active" onclick="toggleDarkMode()">light_mode</span>
+                    <span class="material-icons-sharp" onclick="toggleDarkMode()">dark_mode</span>
                 </div>
                 <div class="inventory" onclick="openInventory(); return false">
                     <span class="material-icons-sharp" style="color: #1B9C85;">
@@ -230,6 +230,41 @@
         sideMenu.style.display = 'none';
         });
     </script>
+    <script>
+        // Function to toggle between light and dark modes
+        function toggleDarkMode() {
+            // Toggle the 'dark' class on the body
+            document.body.classList.toggle('dark');
+    
+            // Check if the 'dark' class is present in body
+            const isDarkMode = document.body.classList.contains('dark');
+    
+            // Store the user's preference for mode in localStorage
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+    
+        // Function to apply user's preferred mode when the page loads
+        function applyPreferredMode() {
+            // Check if there's a preference stored in localStorage
+            const darkModePref = localStorage.getItem('darkMode');
+    
+            // If there's a preference, apply it
+            if (darkModePref !== null) {
+                const isDarkMode = darkModePref === 'true';
+                if (isDarkMode) {
+                    document.body.classList.add('dark');
+                } else {
+                    document.body.classList.remove('dark');
+                }
+            }
+        }
+    
+        // Call the function to apply the preferred mode when the page loads
+        applyPreferredMode();
+    </script>
+    <script src="script.js"></script>
+    <script src="slide.js"></script>
     <script src="dlMood.js"></script>
+    <script src="currency.js"></script>
 </body>
 </html>
